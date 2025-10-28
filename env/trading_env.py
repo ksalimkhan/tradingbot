@@ -37,7 +37,7 @@ class TradingEnv(gym.Env):
         self.features = numeric_df.values.astype(np.float32)
         self.n_features = self.features.shape[1]
 
-        print(f"✅ Cleaned dataset with {len(self.df)} rows and {self.n_features} features.")
+        print(f"Cleaned dataset with {len(self.df)} rows and {self.n_features} features.")
         print(f"Close price range: {self.df['Close'].min():.2f} → {self.df['Close'].max():.2f}")
 
         # Define action/observation spaces
@@ -61,9 +61,9 @@ class TradingEnv(gym.Env):
         prev_value = self.portfolio_value
         price = self.close_prices[self.current_step]
         next_price = self.close_prices[min(self.current_step + 1, len(self.close_prices) - 1)]
-        # Debug: check for invalid or negative prices
+        #Check for invalid or negative prices
         if price <= 0 or next_price <= 0 or np.isnan(price) or np.isnan(next_price):
-            print(f"⚠️ Invalid price at step {self.current_step}: price={price}, next_price={next_price}")  
+            print(f"Invalid price at step {self.current_step}: price={price}, next_price={next_price}")  
 
         # Execute action
         if action == 1 and self.position == 0:  # Buy

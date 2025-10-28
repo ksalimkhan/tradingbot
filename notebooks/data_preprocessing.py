@@ -7,7 +7,7 @@ import os
 # ===============================
 # 1. DOWNLOAD AAPL DATA
 # ===============================
-print("📥 Downloading AAPL data from Yahoo Finance...")
+print("Downloading AAPL data from Yahoo Finance...")
 df = yf.download("AAPL", start="2014-01-01", end="2024-12-31")
 df.reset_index(inplace=True)
 
@@ -72,5 +72,5 @@ output_path = os.path.join(base_dir, "data", "AAPL_DQN_features.csv")
 
 os.makedirs(os.path.dirname(output_path), exist_ok=True)
 df.to_csv(output_path, index=False)
-print(f"✅ Dataset saved to {output_path}")
+print(f"Dataset saved to {output_path}")
 print(df.head())

@@ -19,13 +19,13 @@ model = DQN(
 )
 
 # Train the agent
-print("🚀 Training started...")
+print("Training started...")
 model.learn(total_timesteps=50000)
-print("✅ Training complete!")
+print("Training complete!")
 
 # Save the model
 model.save("models/dqn_trading_model.zip")
-print("💾 Model saved to /models/dqn_trading_model.zip")
+print("Model saved to /models/dqn_trading_model.zip")
 
 # ==========================
 #  EVALUATION PHASE
@@ -33,7 +33,7 @@ print("💾 Model saved to /models/dqn_trading_model.zip")
 from stable_baselines3 import DQN
 from env.trading_env import TradingEnv
 
-print("\n🔍 Evaluating trained model...")
+print("\nEvaluating trained model...")
 
 # Reload trained model and environment
 env = TradingEnv()
@@ -52,5 +52,5 @@ while True:
     if done:
         break
 
-print(f"\n✅ Evaluation complete! Total reward: {total_reward:.2f} over {steps} steps.")
+print(f"\nEvaluation complete! Total reward: {total_reward:.2f} over {steps} steps.")
 print(f"Final portfolio value: {env.portfolio_value:.2f}")
